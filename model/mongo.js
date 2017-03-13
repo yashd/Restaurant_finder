@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/test');
 
 
+
+
 var playerSchema = new mongoose.Schema({
   name: String,
   id: Number,
@@ -12,4 +14,16 @@ var playerSchema = new mongoose.Schema({
 });
 
 
-var player=module.exports=mongoose.model('players', playerSchema);
+var userSchema=new mongoose.Schema({
+    name: String ,
+    email: String,
+    password: String
+});
+
+
+
+
+module.exports.user= mongoose.model('users',userSchema);
+module.exports.player=mongoose.model('players', playerSchema);
+
+
